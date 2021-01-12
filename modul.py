@@ -4,6 +4,23 @@
 # Copyright © Relarizky 2021
 
 
+from contextlib import suppress
+
+
+def validate_number(number: int) -> bool:
+    """
+    validate given number
+    """
+
+    is_integer = False
+
+    with suppress(ValueError):
+        number = int(number)
+        is_integer = True
+
+    return is_integer
+
+
 def sum(*number_list: tuple) -> int:
     """
     sum all the given number values
@@ -12,7 +29,7 @@ def sum(*number_list: tuple) -> int:
     result = 0
 
     for number in number_list:
-        if not number.isdigit():
+        if not validate_number(number):
             # do not process non-number input
             continue
 
@@ -28,7 +45,7 @@ def largest(*number_list: tuple) -> int:
     
     # eliminate non-number value in number_list
     number_list = filter(
-        lambda element: element.isdigit(),
+        validate_number,
         number_list
     )
 
@@ -60,7 +77,7 @@ def multiply(*number_list: tuple) -> int:
     result = 0
 
     for number in number_list:
-        if not number.isdigit():
+        if not validate_number():
             # do not process non-number input
             continue
         
