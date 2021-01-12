@@ -74,13 +74,13 @@ def multiply(*number_list: tuple) -> int:
     multiply all the given number values each other
     """
 
-    result = 0
+    result = 1
 
     for number in number_list:
-        if not validate_number():
-            # do not process non-number input
+        if not validate_number(number):
+            # do not proccess non-number value
             continue
-        
+
         result *= int(number)
 
     return result
