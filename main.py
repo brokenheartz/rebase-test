@@ -6,7 +6,7 @@
 
 
 from sys import argv
-from modul import sum
+from modul import sum, largest
 
 
 if __name__ == "__main__":
@@ -14,3 +14,4 @@ if __name__ == "__main__":
     user_input = argv[1:]
 
     print(f"the sum result is\t: {sum(*user_input)}")
+    print(f"the largest value is\t: {largest(*user_input)}")
