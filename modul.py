@@ -50,3 +50,20 @@ def largest(*number_list: tuple) -> int:
                 number_list[index+1] = temp
 
     return number_list[-1] if number_list != [] else 0
+
+
+def multiply(*number_list: tuple) -> int:
+    """
+    multiply all the given number values each other
+    """
+
+    result = 0
+
+    for number in number_list:
+        if not number.isdigit():
+            # do not process non-number input
+            continue
+        
+        result *= int(number)
+
+    return result
