@@ -6,7 +6,7 @@
 
 
 from sys import argv
-from modul import sum, largest, smallest, multiply
+from modul import sum, largest, multiply, exponent
 
 
 if __name__ == "__main__":
@@ -16,3 +16,4 @@ if __name__ == "__main__":
     print(f"the sum result is\t: {sum(*user_input)}")
     print(f"the largest value is\t: {largest(*user_input)}")
     print(f"the multiply result is\t: {multiply(*user_input)}")
+    print(f"the exponent result is\t: {exponent(*user_input)}")

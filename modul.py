@@ -81,3 +81,25 @@ def multiply(*number_list: tuple) -> int:
         result *= int(number)
 
     return result
+
+
+def exponent(*number_list: int) -> int:
+    """
+    exponent all the given value each other
+    """
+
+    result = 0
+
+    for number in number_list:
+        if not validate_number(number):
+            # do not process non-number value
+            continue
+
+        if result == 0:
+            # put the first element in var result
+            result = int(number)
+            continue
+
+        result **= int(number)
+
+    return result
