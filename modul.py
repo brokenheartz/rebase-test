@@ -35,9 +35,9 @@ def sum(*number_list: tuple) -> int:
     return result
 
 
-def largest(*number_list: tuple) -> int:
+def first_last(*number_list: tuple, first=True) -> int:
     """
-    find the largest number amongst the input list
+    find the largest and smallest number amongst the input list
     """
     
     # eliminate non-number value in number_list
@@ -62,8 +62,16 @@ def largest(*number_list: tuple) -> int:
                 temp = number_list[index]
                 number_list[index] = number_list[index+1]
                 number_list[index+1] = temp
+    
+    if number_list != []:
+        if first is True:
+            value = number_list[0]
+        else:
+            value = number_list[-1]
+    else:
+        value = 0
 
-    return number_list[-1] if number_list != [] else 0
+    return value
 
 
 def multiply(*number_list: tuple) -> int:
@@ -81,34 +89,3 @@ def multiply(*number_list: tuple) -> int:
         result *= int(number)
 
     return result
-
-
-def smallest(*number_list: tuple) -> int:
-    """
-    find the largest number amongst the input list
-    """
-    
-    # eliminate non-number value in number_list
-    number_list = filter(
-        validate_number, 
-        number_list
-    )
-
-    # do type-casting to all the elements
-    number_list = map(
-        lambda element: int(element),
-        number_list
-    )
-
-    # do type-casting from map object to list
-    number_list = list(number_list)
-
-    # sort the number_list
-    for count in range(len(number_list)):
-        for index in range(len(number_list)-1):
-            if number_list[index] > number_list[index+1]:
-                temp = number_list[index]
-                number_list[index] = number_list[index+1]
-                number_list[index+1] = temp
-
-    return number_list[0] if number_list != [] else 0
