@@ -39,7 +39,7 @@ def first_last(*number_list: tuple, first=True) -> int:
     """
     find the largest and smallest number amongst the input list
     """
-    
+
     # eliminate non-number value in number_list
     number_list = filter(
         validate_number,
@@ -87,5 +87,27 @@ def multiply(*number_list: tuple) -> int:
             continue
 
         result *= int(number)
+
+    return result
+
+
+def exponent(*number_list: int) -> int:
+    """
+    exponent all the given value each other
+    """
+
+    result = 0
+
+    for number in number_list:
+        if not validate_number(number):
+            # do not process non-number value
+            continue
+
+        if result == 0:
+            # put the first element in var result
+            result = int(number)
+            continue
+
+        result **= int(number)
 
     return result
